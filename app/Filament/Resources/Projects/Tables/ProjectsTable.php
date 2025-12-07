@@ -17,23 +17,33 @@ class ProjectsTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
+                ->sortable()
+                ->searchable(),
                 TextColumn::make('slug')
-                    ->searchable(),
+                ->sortable()
+                ->searchable(),
                 TextColumn::make('city')
-                    ->searchable(),
+                ->sortable()
+                ->searchable(),
+            TextColumn::make('properties_count')
+                ->searchable()
+                ->label('Total Properties')
+                ->sortable(),
                 TextColumn::make('state')
-                    ->searchable(),
+                ->sortable()
+                ->searchable(),
                 IconColumn::make('status')
                     ->boolean(),
                 IconColumn::make('is_featured')
                     ->boolean(),
                 TextColumn::make('created_at')
-                    ->dateTime()
+                ->sortable()
+                ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                ->sortable()
+                ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
