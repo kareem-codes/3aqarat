@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="ar-EG" dir="rtl">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title inertia>{{ config('app.name', '3aqarat') }}</title>
+    <title inertia>{{ env('APP_NAME', '') }}</title>
+    
+    <meta name="description" content="عقارات - منصتك العقارية الموثوقة">
     @viteReactRefresh
     @vite(['resources/css/app.css', 'resources/js/app.jsx'])
     @inertiaHead

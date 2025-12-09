@@ -1,11 +1,47 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+@import url("https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap");
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: "El Messiri", sans-serif;
+}
+section#hero {
+    background: url("../images/hero.png") no-repeat;
+    height: 80vh;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    background-blend-mode: multiply;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-color: #dce5ea;
+    box-shadow: 0 0 20rem inset #587e8c;
+    mask: linear-gradient(to bottom, black 92%, transparent 100%);
+}
+@media (max-width: 500px) {
+    section#hero {
+        height: 50vh;
+        background-position-y: top;
+        background-size: cover;
+    }
+}
+nav#header-nav {
+    box-shadow: 0 0 20px #87a3ae;
+    backdrop-filter: blur(5px);
+    /* background: #3333331a; */
+    nav a{
+        font-size: 20px;
+    }
+}
+.hero-text {
+    filter: drop-shadow(0px 0px 26px black);
 }
