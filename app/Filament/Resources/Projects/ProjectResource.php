@@ -24,6 +24,12 @@ class ProjectResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    protected static ?string $navigationLabel = 'المشاريع';
+
+    protected static ?string $modelLabel = 'مشروع';
+
+    protected static ?string $pluralModelLabel = 'المشاريع';
+
     public static function form(Schema $schema): Schema
     {
         return ProjectForm::configure($schema);

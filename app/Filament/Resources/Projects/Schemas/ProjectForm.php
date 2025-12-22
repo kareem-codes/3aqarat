@@ -14,87 +14,89 @@ use Filament\Schemas\Schema;
 class ProjectForm
 {
     private static array $categories = [
-        'residential' => 'Residential',
-        'commercial' => 'Commercial',
-        'mixed-use' => 'Mixed Use',
-        'industrial' => 'Industrial',
-        'luxury' => 'Luxury',
-        'affordable' => 'Affordable Housing',
-        'gated-community' => 'Gated Community',
-        'waterfront' => 'Waterfront',
-        'golf-course' => 'Golf Course',
-        'eco-friendly' => 'Eco-Friendly',
+        'residential' => 'سكني',
+        'commercial' => 'تجاري',
+        'mixed-use' => 'استخدام مختلط',
+        'industrial' => 'صناعي',
+        'luxury' => 'فاخر',
+        'affordable' => 'إسكان ميسور',
+        'gated-community' => 'مجتمع مغلق',
+        'waterfront' => 'على واجهة المياه',
+        'golf-course' => 'ملعب جولف',
+        'eco-friendly' => 'صديق للبيئة',
     ];
 
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                Tabs::make('Project Details')
+                Tabs::make('تفاصيل المشروع')
                     ->tabs([
-                        Tab::make('Basic Information')
+                        Tab::make('المعلومات الأساسية')
                             ->icon('heroicon-o-information-circle')
                             ->schema([
                                 TextInput::make('name')
                                     ->required()
-                                    ->label('Project Name')
-                                    ->placeholder('e.g., Downtown Heights Development')
+                                    ->label('اسم المشروع')
+                                    ->placeholder('مثال: تطوير مرتفعات وسط المدينة')
                                     ->columnSpanFull(),
                                 TextInput::make('slug')
                                     ->required()
-                                    ->label('URL Slug')
-                                    ->placeholder('e.g., downtown-heights-development')
+                                    ->label('الرابط')
+                                    ->placeholder('مثال: downtown-heights-development')
                                     ->columnSpanFull(),
                                 Textarea::make('description')
                                     ->required()
-                                    ->label('Description')
-                                    ->placeholder('Provide a detailed description of the project...')
+                                    ->label('الوصف')
+                                    ->placeholder('قدم وصفاً تفصيلياً للمشروع...')
                                     ->rows(4)
                                     ->columnSpanFull(),
                             ]),
 
-                        Tab::make('Location & Categories')
+                        Tab::make('الموقع والفئات')
                             ->icon('heroicon-o-map-pin')
                             ->schema([
                                 Select::make('categories')
-                                    ->label('Categories')
+                                    ->label('الفئات')
                                     ->multiple()
                                     ->required()
                                     ->options(self::$categories)
                                     ->columnSpan('full'),
                                 TextInput::make('city')
                                     ->required()
-                                    ->label('City')
-                                    ->placeholder('e.g., Dubai'),
+                                    ->label('المدينة')
+                                    ->placeholder('مثال: دبي'),
                                 TextInput::make('state')
                                     ->required()
-                                    ->label('State/Province')
-                                    ->placeholder('e.g., Dubai Emirate'),
+                                    ->label('المحافظة/الإمارة')
+                                    ->placeholder('مثال: إمارة دبي'),
                             ])
                             ->columns(2),
 
-                        Tab::make('Media')
+                        Tab::make('الوسائط')
                             ->icon('heroicon-o-photo')
                             ->schema([
                                 FileUpload::make('images')
-                                    ->label('Project Images')
+                                    ->label('صور المشروع')
                                     ->image()
                                     ->multiple()
                                     ->maxFiles(15)
+                                    ->disk('public')
+                                    ->directory('projects')
                                     ->columnSpanFull()
                                     ->imageCropAspectRatio('16:9')
                                     ->imageResizeTargetWidth(1920)
                                     ->imageResizeTargetHeight(1080),
                             ]),
 
-                        Tab::make('Status & Visibility')
+                        Tab::make('الحالة والظهور')
                             ->icon('heroicon-o-eye')
                             ->schema([
                                 Toggle::make('status')
-                                    ->label('Active')
+                                    ->label('نشط')
                                     ->default(true),
                                 Toggle::make('is_featured')
-                                    ->label('Featured'),
+                                    ->label('مميز'),
                             ])
                             ->columns(2),
                     ])

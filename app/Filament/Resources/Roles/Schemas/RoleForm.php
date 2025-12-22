@@ -14,31 +14,31 @@ class RoleForm
     {
         return $schema
             ->components([
-                Tabs::make('Role Details')
+                Tabs::make('تفاصيل الدور')
                     ->tabs([
-                        Tab::make('Basic Information')
+                        Tab::make('المعلومات الأساسية')
                             ->icon('heroicon-o-information-circle')
                             ->schema([
                                 TextInput::make('name')
                                     ->required()
-                                    ->label('Role Name')
-                                    ->placeholder('e.g., Admin, Editor, Viewer')
+                                    ->label('اسم الدور')
+                                    ->placeholder('مثال: مدير، محرر، مشاهد')
                                     ->unique(ignoreRecord: true)
                                     ->maxLength(255)
                                     ->columnSpanFull(),
                                 TextInput::make('guard_name')
                                     ->default('web')
-                                    ->label('Guard Name')
+                                    ->label('اسم الحارس')
                                     ->disabled()
                                     ->dehydrated()
                                     ->columnSpanFull(),
                             ]),
 
-                        Tab::make('Permissions')
+                        Tab::make('الصلاحيات')
                             ->icon('heroicon-o-key')
                             ->schema([
                                 CheckboxList::make('permissions')
-                                    ->label('Assign Permissions')
+                                    ->label('تعيين الصلاحيات')
                                     ->relationship('permissions', 'name')
                                     ->searchable()
                                     ->columns(3)

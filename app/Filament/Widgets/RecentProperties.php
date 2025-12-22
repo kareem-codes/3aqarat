@@ -22,43 +22,46 @@ class RecentProperties extends BaseWidget
             )
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Property Name')
+                    ->label('اسم العقار')
                     ->searchable()
                     ->sortable()
                     ->weight('bold'),
                 Tables\Columns\TextColumn::make('city')
-                    ->label('City')
+                    ->label('المدينة')
                     ->icon('heroicon-o-map-pin')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
-                    ->label('Price')
+                    ->label('السعر')
                     ->money('USD')
                     ->sortable()
                     ->color('success'),
                 Tables\Columns\TextColumn::make('bedrooms')
-                    ->label('Beds')
-                    ->suffix(' Beds')
+                    ->label('غرف النوم')
+                    ->suffix(' غرفة')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('bathrooms')
-                    ->label('Baths')
-                    ->suffix(' Baths')
+                    ->label('دورات المياه')
+                    ->suffix(' حمام')
                     ->sortable(),
                 Tables\Columns\IconColumn::make('status')
-                    ->label('Status')
+                    ->label('الحالة')
                     ->boolean()
                     ->trueIcon('heroicon-o-check-circle')
                     ->falseIcon('heroicon-o-x-circle')
                     ->trueColor('success')
                     ->falseColor('danger'),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label('Added')
+                    ->label('أضيف')
                     ->since()
                     ->sortable(),
-            ]);
+            ])
+            ->emptyStateHeading('لا توجد عقارات')
+            ->emptyStateDescription('قم بإضافة عقار للبدء.')
+            ->emptyStateIcon('heroicon-o-building-office');
     }
 
     protected function getTableHeading(): ?string
     {
-        return 'Recently Added Properties';
+        return 'العقارات المضافة حديثاً';
     }
 }

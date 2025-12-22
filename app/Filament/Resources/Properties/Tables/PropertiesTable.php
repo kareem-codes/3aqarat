@@ -17,51 +17,70 @@ class PropertiesTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('الاسم'),
                 TextColumn::make('slug')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('الرابط'),
                 IconColumn::make('status')
-                    ->boolean(),
+                    ->boolean()
+                    ->label('نشط'),
                 IconColumn::make('is_featured')
-                    ->boolean(),
+                    ->boolean()
+                    ->label('مميز'),
                 IconColumn::make('is_for_rent')
-                    ->boolean(),
+                    ->boolean()
+                    ->label('للإيجار'),
                 IconColumn::make('is_for_sale')
-                    ->boolean(),
+                    ->boolean()
+                    ->label('للبيع'),
                 TextColumn::make('city')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('المدينة'),
                 TextColumn::make('state')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('المحافظة'),
                 TextColumn::make('price')
                     ->money()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('السعر'),
                 TextColumn::make('bedrooms')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('غرف النوم'),
                 TextColumn::make('bathrooms')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('دورات المياه'),
                 TextColumn::make('space')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('المساحة'),
                 TextColumn::make('project_id')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('رقم المشروع'),
                 TextColumn::make('agent_id')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('رقم الوكيل'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label('تاريخ الإنشاء'),
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label('تاريخ التحديث'),
             ])
             ->filters([
                 //
             ])
+            ->emptyStateHeading('لا توجد عقارات')
+            ->emptyStateDescription('قم بإضافة عقار للبدء.')
+            ->emptyStateIcon('heroicon-o-building-office')
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),

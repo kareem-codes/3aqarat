@@ -24,6 +24,12 @@ class PropertyResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    protected static ?string $navigationLabel = 'العقارات';
+
+    protected static ?string $modelLabel = 'عقار';
+
+    protected static ?string $pluralModelLabel = 'العقارات';
+
     public static function form(Schema $schema): Schema
     {
         return PropertyForm::configure($schema);

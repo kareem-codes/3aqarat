@@ -17,32 +17,43 @@ class AgentsTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
-                ImageColumn::make('image'),
+                    ->searchable()
+                    ->label('الاسم'),
+                ImageColumn::make('image')
+                    ->label('الصورة'),
                 TextColumn::make('email')
-                    ->label('Email address')
+                    ->label('البريد الإلكتروني')
                     ->searchable(),
                 TextColumn::make('phone')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('رقم الهاتف'),
                 IconColumn::make('status')
-                    ->boolean(),
+                    ->boolean()
+                    ->label('الحالة'),
                 TextColumn::make('rating')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('التقييم'),
                 TextColumn::make('bio')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('نبذة'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label('تاريخ الإنشاء'),
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label('تاريخ التحديث'),
             ])
             ->filters([
                 //
             ])
+            ->emptyStateHeading('لا يوجد وكلاء')
+            ->emptyStateDescription('قم بإضافة وكيل للبدء.')
+            ->emptyStateIcon('heroicon-o-user-circle')
             ->recordActions([
                 EditAction::make(),
             ])

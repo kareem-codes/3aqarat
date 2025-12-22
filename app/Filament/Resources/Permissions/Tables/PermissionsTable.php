@@ -13,21 +13,24 @@ class PermissionsTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Permission Name')
+                    ->label('اسم الصلاحية')
                     ->searchable()
                     ->sortable()
                     ->weight('bold'),
                 TextColumn::make('guard_name')
-                    ->label('Guard')
+                    ->label('الحارس')
                     ->badge()
                     ->color('info'),
                 TextColumn::make('created_at')
-                    ->label('Created At')
+                    ->label('تاريخ الإنشاء')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-            ]);
+            ])
+            ->emptyStateHeading('لا توجد صلاحيات')
+            ->emptyStateDescription('قم بإضافة صلاحية للبدء.')
+            ->emptyStateIcon('heroicon-o-key');
     }
 }

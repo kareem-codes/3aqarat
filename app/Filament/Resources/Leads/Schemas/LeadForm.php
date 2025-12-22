@@ -13,22 +13,29 @@ class LeadForm
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->required(),
+                    ->required()
+                    ->label('الاسم'),
                 TextInput::make('email')
-                    ->label('Email address')
+                    ->label('البريد الإلكتروني')
                     ->email(),
                 TextInput::make('phone')
-                    ->tel(),
-                TextInput::make('time_range_to_contact'),
+                    ->tel()
+                    ->label('رقم الهاتف'),
+                TextInput::make('time_range_to_contact')
+                    ->label('وقت التواصل'),
                 TextInput::make('property_id')
-                    ->numeric(),
+                    ->numeric()
+                    ->label('رقم العقار'),
                 TextInput::make('agent_id')
-                    ->numeric(),
+                    ->numeric()
+                    ->label('رقم الوكيل'),
                 Textarea::make('message')
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->label('الرسالة'),
                 TextInput::make('status')
                     ->required()
-                    ->default('new'),
+                    ->default('new')
+                    ->label('الحالة'),
             ]);
     }
 }

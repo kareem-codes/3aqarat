@@ -17,99 +17,99 @@ use Filament\Schemas\Schema;
 class PropertyForm
 {
     private static array $categories = [
-        'apartment' => 'Apartment',
-        'house' => 'House',
-        'villa' => 'Villa',
-        'townhouse' => 'Townhouse',
-        'land' => 'Land',
-        'commercial' => 'Commercial',
-        'office' => 'Office Space',
-        'retail' => 'Retail',
-        'warehouse' => 'Warehouse',
-        'studio' => 'Studio',
-        'penthouse' => 'Penthouse',
-        'duplex' => 'Duplex',
+        'apartment' => 'شقة',
+        'house' => 'منزل',
+        'villa' => 'فيلا',
+        'townhouse' => 'تاون هاوس',
+        'land' => 'أرض',
+        'commercial' => 'تجاري',
+        'office' => 'مساحة مكتبية',
+        'retail' => 'متجر',
+        'warehouse' => 'مستودع',
+        'studio' => 'ستوديو',
+        'penthouse' => 'بنتهاوس',
+        'duplex' => 'دوبلكس',
     ];
 
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                Tabs::make('Property Details')
+                Tabs::make('تفاصيل العقار')
                     ->tabs([
-                        Tab::make('Basic Information')
+                        Tab::make('المعلومات الأساسية')
                             ->icon('heroicon-o-information-circle')
                             ->schema([
                                 TextInput::make('name')
                                     ->required()
-                                    ->label('Property Name')
-                                    ->placeholder('e.g., Modern Downtown Apartment')
+                                    ->label('اسم العقار')
+                                    ->placeholder('مثال: شقة حديثة في وسط المدينة')
                                     ->columnSpanFull(),
                                 TextInput::make('slug')
                                     ->required()
-                                    ->label('URL Slug')
-                                    ->placeholder('e.g., modern-downtown-apartment')
+                                    ->label('الرابط')
+                                    ->placeholder('مثال: modern-downtown-apartment')
                                     ->columnSpanFull(),
                                 Textarea::make('description')
                                     ->required()
-                                    ->label('Description')
-                                    ->placeholder('Provide a detailed description of the property...')
+                                    ->label('الوصف')
+                                    ->placeholder('قدم وصفاً تفصيلياً للعقار...')
                                     ->rows(4)
                                     ->columnSpanFull(),
                             ]),
 
-                        Tab::make('Property Details')
+                        Tab::make('تفاصيل العقار')
                             ->icon('heroicon-o-home')
                             ->schema([
                                 Select::make('categories')
-                                    ->label('Categories')
+                                    ->label('الفئات')
                                     ->multiple()
                                     ->required()
                                     ->options(self::$categories)
                                     ->columnSpan('full'),
                                 TextInput::make('city')
                                     ->required()
-                                    ->label('City')
-                                    ->placeholder('e.g., Dubai'),
+                                    ->label('المدينة')
+                                    ->placeholder('مثال: دبي'),
                                 TextInput::make('state')
                                     ->required()
-                                    ->label('State/Province')
-                                    ->placeholder('e.g., Dubai Emirate'),
+                                    ->label('المحافظة/الإمارة')
+                                    ->placeholder('مثال: إمارة دبي'),
                                 TextInput::make('price')
                                     ->required()
                                     ->numeric()
-                                    ->label('Price')
+                                    ->label('السعر')
                                     ->prefix('$')
                                     ->step(0.01),
                                 TextInput::make('bedrooms')
                                     ->numeric()
-                                    ->label('Bedrooms')
+                                    ->label('غرف النوم')
                                     ->default(0)
                                     ->minValue(0),
                                 TextInput::make('bathrooms')
                                     ->numeric()
-                                    ->label('Bathrooms')
+                                    ->label('دورات المياه')
                                     ->default(0)
                                     ->minValue(0),
                                 TextInput::make('space')
                                     ->numeric()
-                                    ->label('Space (Sq. Ft)')
-                                    ->placeholder('e.g., 2500')
+                                    ->label('المساحة (قدم مربع)')
+                                    ->placeholder('مثال: 2500')
                                     ->minValue(0),
                             ])
                             ->columns(2),
 
-                        Tab::make('Relationships')
+                        Tab::make('الارتباطات')
                             ->icon('heroicon-o-link')
                             ->schema([
                                 Select::make('project_id')
-                                    ->label('Project')
+                                    ->label('المشروع')
                                     ->options(Project::query()->pluck('name', 'id'))
                                     ->searchable()
                                     ->preload()
                                     ->nullable(),
                                 Select::make('agent_id')
-                                    ->label('Agent')
+                                    ->label('الوكيل')
                                     ->options(Agent::query()->pluck('name', 'id'))
                                     ->searchable()
                                     ->preload()
@@ -117,32 +117,34 @@ class PropertyForm
                             ])
                             ->columns(2),
 
-                        Tab::make('Media')
+                        Tab::make('الوسائط')
                             ->icon('heroicon-o-photo')
                             ->schema([
                                 FileUpload::make('images')
-                                    ->label('Property Images')
+                                    ->label('صور العقار')
                                     ->image()
                                     ->multiple()
                                     ->maxFiles(10)
+                                    ->disk('public')
+                                    ->directory('properties')
                                     ->columnSpanFull()
                                     ->imageCropAspectRatio('16:9')
                                     ->imageResizeTargetWidth(1920)
                                     ->imageResizeTargetHeight(1080),
                             ]),
 
-                        Tab::make('Status & Visibility')
+                        Tab::make('الحالة والظهور')
                             ->icon('heroicon-o-eye')
                             ->schema([
                                 Toggle::make('status')
-                                    ->label('Active')
+                                    ->label('نشط')
                                     ->default(true),
                                 Toggle::make('is_featured')
-                                    ->label('Featured'),
+                                    ->label('مميز'),
                                 Toggle::make('is_for_rent')
-                                    ->label('Available for Rent'),
+                                    ->label('متاح للإيجار'),
                                 Toggle::make('is_for_sale')
-                                    ->label('Available for Sale'),
+                                    ->label('متاح للبيع'),
                             ])
                             ->columns(2),
                     ])

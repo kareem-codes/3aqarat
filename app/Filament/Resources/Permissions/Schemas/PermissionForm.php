@@ -13,14 +13,14 @@ class PermissionForm
             ->components([
                 TextInput::make('name')
                     ->required()
-                    ->label('Permission Name')
-                    ->placeholder('e.g., view_properties, create_agents')
+                    ->label('اسم الصلاحية')
+                    ->placeholder('مثال: view_properties, create_agents')
                     ->unique(ignoreRecord: true)
                     ->maxLength(255)
                     ->columnSpanFull(),
                 TextInput::make('guard_name')
                     ->default('web')
-                    ->label('Guard Name')
+                    ->label('اسم الحارس')
                     ->disabled()
                     ->dehydrated()
                     ->columnSpanFull(),

@@ -15,14 +15,14 @@ export default function Header() {
 
     const linkClass = (path) => {
         return isActive(path)
-            ? "text-dark px-2 md:px-4 mx-1 py-2 rounded-full bg-white transition hover:bg-gray-200"
-            : "text-white px-2 md:px-4 mx-1 py-2 rounded-full hover:bg-white hover:text-black transition";
+            ? "text-slate-800 px-2 md:px-4 mx-1 py-2 rounded-full bg-white/90 transition hover:bg-white font-medium"
+            : "text-slate-700 px-2 md:px-4 mx-1 py-2 rounded-full hover:bg-white/80 hover:text-slate-900 transition font-medium";
     };
 
     const mobileLinkClass = (path) => {
         return isActive(path)
-            ? "block text-dark px-4 py-3 rounded-full bg-white transition hover:bg-gray-200"
-            : "block text-white px-4 py-3 rounded-full hover:bg-white hover:text-black transition";
+            ? "block text-slate-800 px-4 py-3 rounded-full bg-white/90 transition hover:bg-white font-medium"
+            : "block text-slate-700 px-4 py-3 rounded-full hover:bg-white/80 hover:text-slate-900 transition font-medium";
     };
 
     return (
@@ -31,7 +31,7 @@ export default function Header() {
                 className="bg-transparent mt-4 p-3 rounded-3xl mx-auto max-w-[calc(100%-2rem)] flex items-center justify-between"
                 id="header-nav"
             >
-                <div className="text-3xl font-bold text-white">عـقارات</div>
+                <div className="text-3xl font-bold text-slate-800">عـقارات</div>
 
                 <nav className="hidden md:flex items-center">
                     <div>
@@ -49,10 +49,10 @@ export default function Header() {
                 </nav>
                 <div className="flex items-center gap-2">
                     <div>
-                        <a href="#contact" className="text-dark px-2 md:px-4 py-2 rounded-full bg-white transition flex items-center gap-1 hover:bg-gray-200"><FiPhone /><span className="hidden md:flex">تواصل معنا</span></a>
+                        <a href="/contact" className="text-white px-3 md:px-5 py-2 md:py-2.5 rounded-full bg-slate-800 hover:bg-slate-700 transition flex items-center gap-2 font-medium shadow-md"><FiPhone /><span className="hidden md:flex">احجز استشارتك</span></a>
                     </div>
                     <button
-                        className="md:hidden text-white text-2xl p-2"
+                        className="md:hidden text-slate-800 text-2xl p-2"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         aria-label="Toggle menu"
                     >
@@ -63,7 +63,7 @@ export default function Header() {
 
             {/* Mobile Menu */}
             {isMenuOpen && (
-                <div className="md:hidden backdrop-blur-md mt-2 p-4 rounded-3xl mx-auto max-w-[calc(100%-2rem)] space-y-2">
+                <div className="md:hidden backdrop-blur-md bg-white/80 mt-2 p-4 rounded-3xl mx-auto max-w-[calc(100%-2rem)] space-y-2 shadow-lg">
                     <a href="/" className={mobileLinkClass('/')} onClick={() => setIsMenuOpen(false)}>
                         الرئيسية
                     </a>
@@ -76,8 +76,8 @@ export default function Header() {
                     <a href="/agents" className={mobileLinkClass('/agents')} onClick={() => setIsMenuOpen(false)}>
                         الوكلاء
                     </a>
-                    <a href="#contact" className="block px-4 py-3 rounded-full transition hover:bg-gray-200 text-white" onClick={() => setIsMenuOpen(false)}>
-                        تواصل معنا
+                    <a href="#contact" className="block px-4 py-3 rounded-full transition hover:bg-slate-100 text-slate-800 font-medium" onClick={() => setIsMenuOpen(false)}>
+                        احجز استشارتك
                     </a>
                 </div>
             )}

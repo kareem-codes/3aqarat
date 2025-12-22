@@ -18,55 +18,55 @@ class UserForm
     {
         return $schema
             ->components([
-                Tabs::make('User Details')
+                Tabs::make('تفاصيل المستخدم')
                     ->tabs([
-                        Tab::make('Basic Information')
+                        Tab::make('المعلومات الأساسية')
                             ->icon('heroicon-o-user')
                             ->schema([
                                 TextInput::make('name')
                                     ->required()
-                                    ->label('Full Name')
-                                    ->placeholder('e.g., John Doe')
+                                    ->label('الاسم الكامل')
+                                    ->placeholder('مثال: محمد أحمد')
                                     ->maxLength(255),
                                 TextInput::make('email')
                                     ->required()
                                     ->email()
-                                    ->label('Email Address')
-                                    ->placeholder('e.g., john@example.com')
+                                    ->label('البريد الإلكتروني')
+                                    ->placeholder('مثال: user@example.com')
                                     ->unique(ignoreRecord: true)
                                     ->maxLength(255),
                                 TextInput::make('password')
                                     ->password()
-                                    ->label('Password')
+                                    ->label('كلمة المرور')
                                     ->dehydrateStateUsing(fn ($state) => filled($state) ? Hash::make($state) : null)
                                     ->required(fn (string $context): bool => $context === 'create')
                                     ->dehydrated(fn ($state) => filled($state))
-                                    ->placeholder('Enter password')
+                                    ->placeholder('أدخل كلمة المرور')
                                     ->revealable()
                                     ->minLength(8),
                                 TextInput::make('password_confirmation')
                                     ->password()
-                                    ->label('Confirm Password')
+                                    ->label('تأكيد كلمة المرور')
                                     ->dehydrated(false)
                                     ->same('password')
                                     ->required(fn (string $context): bool => $context === 'create')
-                                    ->placeholder('Confirm password')
+                                    ->placeholder('أعد إدخال كلمة المرور')
                                     ->revealable(),
                             ])
                             ->columns(2),
 
-                        Tab::make('Roles & Permissions')
+                        Tab::make('الأدوار والصلاحيات')
                             ->icon('heroicon-o-shield-check')
                             ->schema([
                                 Select::make('roles')
-                                    ->label('Roles')
+                                    ->label('الأدوار')
                                     ->relationship('roles', 'name')
                                     ->multiple()
                                     ->preload()
                                     ->searchable()
                                     ->columnSpanFull(),
                                 CheckboxList::make('permissions')
-                                    ->label('Direct Permissions')
+                                    ->label('الصلاحيات المباشرة')
                                     ->relationship('permissions', 'name')
                                     ->searchable()
                                     ->columns(3)

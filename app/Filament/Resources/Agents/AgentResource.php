@@ -22,6 +22,12 @@ class AgentResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    protected static ?string $navigationLabel = 'الوكلاء';
+
+    protected static ?string $modelLabel = 'وكيل';
+
+    protected static ?string $pluralModelLabel = 'الوكلاء';
+
     public static function form(Schema $schema): Schema
     {
         return AgentForm::configure($schema);

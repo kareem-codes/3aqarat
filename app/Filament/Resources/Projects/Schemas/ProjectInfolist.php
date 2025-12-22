@@ -17,42 +17,42 @@ class ProjectInfolist
     {
         return $schema
             ->components([
-                Tabs::make('Project Information')
+                Tabs::make('معلومات المشروع')
                     ->tabs([
-                        Tab::make('Overview')
+                        Tab::make('نظرة عامة')
                             ->icon('heroicon-o-building-office')
                             ->schema([
                                 TextEntry::make('name')
-                                    ->label('Project Name')
+                                    ->label('اسم المشروع')
                                     ->weight(FontWeight::Bold)
                                     ->columnSpanFull(),
                                 Grid::make(2)
                                     ->schema([
                                         TextEntry::make('slug')
-                                            ->label('URL Slug')
+                                            ->label('الرابط')
                                             ->icon('heroicon-o-link')
                                             ->copyable()
                                             ->color('gray'),
                                         TextEntry::make('properties_count')
-                                            ->label('Total Properties')
+                                            ->label('إجمالي العقارات')
                                             ->icon('heroicon-o-home')
-                                            ->suffix(' Properties')
+                                            ->suffix(' عقار')
                                             ->weight(FontWeight::Bold)
                                             ->color('primary'),
                                     ]),
                                 TextEntry::make('description')
-                                    ->label('Description')
+                                    ->label('الوصف')
                                     ->columnSpanFull()
                                     ->markdown(),
                                 TextEntry::make('price_range')
-                                    ->label('Price Range')
+                                    ->label('نطاق الأسعار')
                                     ->icon('heroicon-o-currency-dollar')
                                     ->color('success')
                                     ->weight(FontWeight::Bold)
-                                    ->default('No properties yet'),
+                                    ->default('لا توجد عقارات بعد'),
                             ]),
 
-                        Tab::make('Images')
+                        Tab::make('الصور')
                             ->icon('heroicon-o-photo')
                             ->schema([
                                 ImageEntry::make('images')
@@ -63,39 +63,39 @@ class ProjectInfolist
                                     ->limitedRemainingText(),
                             ]),
 
-                        Tab::make('Details')
+                        Tab::make('التفاصيل')
                             ->icon('heroicon-o-clipboard-document-list')
                             ->schema([
                                 TextEntry::make('categories')
-                                    ->label('Categories')
+                                    ->label('الفئات')
                                     ->badge()
                                     ->separator(',')
                                     ->columnSpanFull(),
                                 Grid::make(2)
                                     ->schema([
                                         TextEntry::make('city')
-                                            ->label('City')
+                                            ->label('المدينة')
                                             ->icon('heroicon-o-building-office-2'),
                                         TextEntry::make('state')
-                                            ->label('State/Province')
+                                            ->label('المحافظة/الإمارة')
                                             ->icon('heroicon-o-map'),
                                     ]),
                             ]),
 
-                        Tab::make('Status')
+                        Tab::make('الحالة')
                             ->icon('heroicon-o-eye')
                             ->schema([
                                 Grid::make(2)
                                     ->schema([
                                         IconEntry::make('status')
-                                            ->label('Active')
+                                            ->label('نشط')
                                             ->boolean()
                                             ->trueIcon('heroicon-o-check-circle')
                                             ->falseIcon('heroicon-o-x-circle')
                                             ->trueColor('success')
                                             ->falseColor('danger'),
                                         IconEntry::make('is_featured')
-                                            ->label('Featured')
+                                            ->label('مميز')
                                             ->boolean()
                                             ->trueIcon('heroicon-o-star')
                                             ->falseIcon('heroicon-o-star')
@@ -105,12 +105,12 @@ class ProjectInfolist
                                 Grid::make(2)
                                     ->schema([
                                         TextEntry::make('created_at')
-                                            ->label('Created At')
+                                            ->label('تاريخ الإنشاء')
                                             ->icon('heroicon-o-plus-circle')
                                             ->dateTime()
                                             ->color('gray'),
                                         TextEntry::make('updated_at')
-                                            ->label('Last Updated')
+                                            ->label('آخر تحديث')
                                             ->icon('heroicon-o-pencil-square')
                                             ->dateTime()
                                             ->since()

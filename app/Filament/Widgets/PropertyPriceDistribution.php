@@ -8,7 +8,7 @@ use Illuminate\Support\Carbon;
 
 class PropertyPriceDistribution extends ChartWidget
 {
-    protected ?string $heading = 'Property Price Distribution';
+    protected ?string $heading = 'توزيع أسعار العقارات';
     protected static ?int $sort = 3;
     protected ?string $maxHeight = '300px';
 
@@ -49,7 +49,7 @@ class PropertyPriceDistribution extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Number of Properties',
+                    'label' => 'عدد العقارات',
                     'data' => array_values($priceRanges),
                     'backgroundColor' => 'rgb(34, 197, 94)',
                     'borderColor' => 'rgb(22, 163, 74)',

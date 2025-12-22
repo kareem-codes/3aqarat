@@ -9,7 +9,7 @@ use Illuminate\Support\Carbon;
 
 class MonthlyActivity extends ChartWidget
 {
-    protected ?string $heading = 'Monthly Activity (Last 6 Months)';
+    protected ?string $heading = 'النشاط الشهري (آخر 6 شهور)';
     protected static ?int $sort = 4;
     protected ?string $maxHeight = '300px';
 
@@ -39,14 +39,14 @@ class MonthlyActivity extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'New Properties',
+                    'label' => 'عقارات جديدة',
                     'data' => $propertyData,
                     'borderColor' => 'rgb(59, 130, 246)',
                     'backgroundColor' => 'rgba(59, 130, 246, 0.1)',
                     'fill' => true,
                 ],
                 [
-                    'label' => 'New Leads',
+                    'label' => 'عملاء محتملين جدد',
                     'data' => $leadData,
                     'borderColor' => 'rgb(251, 146, 60)',
                     'backgroundColor' => 'rgba(251, 146, 60, 0.1)',

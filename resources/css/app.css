@@ -8,13 +8,26 @@
 @import url("https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap");
 @theme {
     --font-sans: "El Messiri", sans-serif;
+
+    /* Modern color palette matching the image */
+    --color-primary: 135 206 235; /* Sky blue */
+    --color-primary-dark: 100 149 237; /* Cornflower blue */
+    --color-accent: 240 128 128; /* Light coral/warm accent */
+    --color-neutral-50: 248 250 252;
+    --color-neutral-100: 241 245 249;
+    --color-neutral-200: 226 232 240;
+    --color-neutral-300: 203 213 225;
+    --color-neutral-400: 148 163 184;
+    --color-neutral-500: 100 116 139;
+    --color-neutral-600: 71 85 105;
+    --color-neutral-700: 51 65 85;
+    --color-neutral-800: 30 41 59;
+    --color-neutral-900: 15 23 42;
 }
+
+/* Light blue gradient background matching the image */
 section#hero {
-    background: url("../images/hero.png") no-repeat;
     height: 80vh;
-    background-position-x: center;
-    background-position-y: center;
-    background-size: cover;
     background-blend-mode: multiply;
     display: flex;
     flex-direction: column;
@@ -22,26 +35,157 @@ section#hero {
     align-items: center;
     color: white;
     text-align: center;
-    background-repeat: no-repeat;
-    background-color: #dce5ea;
-    box-shadow: 0 0 20rem inset #587e8c;
-    mask: linear-gradient(to bottom, black 92%, transparent 100%);
+    position: relative;
+    overflow: hidden;
 }
+
+.hero-image, .hero-bg {
+    height: 80vh;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.hero-image {
+
+    background: url("../images/hero.png") no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    opacity: 0.7;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+.hero-content-wrapper {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+
+
+.hero-text-section {
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.hero-image-section {
+    position: relative;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1024px) {
+    section#hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 6rem 0 3rem;
+    }
+
+    .hero-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .hero-text-section {
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .hero-image-section {
+        height: 400px;
+    }
+}
+
 @media (max-width: 500px) {
     section#hero {
-        height: 50vh;
-        background-position-y: top;
-        background-size: cover;
+        padding: 5rem 0 2rem;
+    }
+
+    .hero-image-section {
+        height: 300px;
     }
 }
+
+/* Navigation styling with glass morphism */
 nav#header-nav {
-    box-shadow: 0 0 20px #87a3ae;
-    backdrop-filter: blur(5px);
-    /* background: #3333331a; */
-    nav a{
-        font-size: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+    nav a {
+        font-size: 18px;
     }
 }
+
 .hero-text {
-    filter: drop-shadow(0px 0px 26px black);
+    filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.1));
+}
+
+/* Section styling for consistency */
+section#brief {
+    background: #ffffff;
+}
+
+/* Modern button styles matching the image aesthetic */
+.btn-primary {
+    background: #2C3E50;
+    color: white;
+    transition: all 0.3s ease;
+    border-radius: 9999px;
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.2);
+}
+
+.btn-primary:hover {
+    background: #34495E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(44, 62, 80, 0.3);
+}
+
+.btn-secondary {
+    background: white;
+    color: #2C3E50;
+    border: 2px solid #E8EEF2;
+    transition: all 0.3s ease;
+    border-radius: 9999px;
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+}
+
+.btn-secondary:hover {
+    border-color: #2C3E50;
+    background: #F8FAFC;
+}
+
+/* Glass card effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+/* Consistent rounded corners */
+.card {
+    border-radius: 1.5rem;
+}
+
+.card-lg {
+    border-radius: 2rem;
 }

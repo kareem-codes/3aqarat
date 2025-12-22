@@ -25,37 +25,40 @@ class TopAgents extends BaseWidget
             )
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Agent Name')
+                    ->label('اسم الوكيل')
                     ->searchable()
                     ->weight('bold'),
                 Tables\Columns\TextColumn::make('email')
-                    ->label('Email')
+                    ->label('البريد الإلكتروني')
                     ->icon('heroicon-o-envelope')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phone')
-                    ->label('Phone')
+                    ->label('رقم الهاتف')
                     ->icon('heroicon-o-phone')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('properties_count')
-                    ->label('Properties')
+                    ->label('العقارات')
                     ->sortable()
                     ->badge()
                     ->color('success'),
                 Tables\Columns\TextColumn::make('leads_count')
-                    ->label('Leads')
+                    ->label('العملاف')
                     ->sortable()
                     ->badge()
                     ->color('info'),
                 Tables\Columns\TextColumn::make('rating')
-                    ->label('Rating')
+                    ->label('التقييم')
                     ->icon('heroicon-o-star')
                     ->color('warning')
                     ->sortable(),
-            ]);
+            ])
+            ->emptyStateHeading('لا يوجد وكلاء')
+            ->emptyStateDescription('قم بإضافة وكيل للبدء.')
+            ->emptyStateIcon('heroicon-o-user-circle');
     }
 
     protected function getTableHeading(): ?string
     {
-        return 'Top Performing Agents';
+        return 'أفضل الوكلاء أداءً';
     }
 }

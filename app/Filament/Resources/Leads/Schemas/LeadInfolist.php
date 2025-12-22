@@ -11,30 +11,39 @@ class LeadInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('name'),
+                TextEntry::make('name')
+                    ->label('الاسم'),
                 TextEntry::make('email')
-                    ->label('Email address')
+                    ->label('البريد الإلكتروني')
                     ->placeholder('-'),
                 TextEntry::make('phone')
-                    ->placeholder('-'),
+                    ->placeholder('-')
+                    ->label('رقم الهاتف'),
                 TextEntry::make('time_range_to_contact')
-                    ->placeholder('-'),
+                    ->placeholder('-')
+                    ->label('وقت التواصل'),
                 TextEntry::make('property_id')
                     ->numeric()
-                    ->placeholder('-'),
+                    ->placeholder('-')
+                    ->label('رقم العقار'),
                 TextEntry::make('agent_id')
                     ->numeric()
-                    ->placeholder('-'),
+                    ->placeholder('-')
+                    ->label('رقم الوكيل'),
                 TextEntry::make('message')
                     ->placeholder('-')
-                    ->columnSpanFull(),
-                TextEntry::make('status'),
+                    ->columnSpanFull()
+                    ->label('الرسالة'),
+                TextEntry::make('status')
+                    ->label('الحالة'),
                 TextEntry::make('created_at')
                     ->dateTime()
-                    ->placeholder('-'),
+                    ->placeholder('-')
+                    ->label('تاريخ الإنشاء'),
                 TextEntry::make('updated_at')
                     ->dateTime()
-                    ->placeholder('-'),
+                    ->placeholder('-')
+                    ->label('تاريخ التحديث'),
             ]);
     }
 }

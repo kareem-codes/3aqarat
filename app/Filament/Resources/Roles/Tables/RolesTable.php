@@ -13,27 +13,30 @@ class RolesTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Role Name')
+                    ->label('اسم الدور')
                     ->searchable()
                     ->sortable()
                     ->weight('bold'),
                 TextColumn::make('permissions_count')
-                    ->label('Permissions')
+                    ->label('الصلاحيات')
                     ->counts('permissions')
                     ->badge()
                     ->color('success'),
                 TextColumn::make('users_count')
-                    ->label('Users')
+                    ->label('المستخدمين')
                     ->counts('users')
                     ->badge()
                     ->color('info'),
                 TextColumn::make('created_at')
-                    ->label('Created At')
+                    ->label('تاريخ الإنشاء')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-            ]);
+            ])
+            ->emptyStateHeading('لا توجد أدوار')
+            ->emptyStateDescription('قم بإضافة دور للبدء.')
+            ->emptyStateIcon('heroicon-o-shield-check');
     }
 }

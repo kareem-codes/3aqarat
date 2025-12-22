@@ -24,6 +24,12 @@ class PermissionResource extends Resource
 
     protected static ?int $navigationSort = 3;
 
+    protected static ?string $navigationLabel = 'الصلاحيات';
+
+    protected static ?string $modelLabel = 'صلاحية';
+
+    protected static ?string $pluralModelLabel = 'الصلاحيات';
+
     public static function form(Schema $schema): Schema
     {
         return PermissionForm::configure($schema);

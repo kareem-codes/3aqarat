@@ -24,6 +24,12 @@ class RoleResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
+    protected static ?string $navigationLabel = 'الأدوار';
+
+    protected static ?string $modelLabel = 'دور';
+
+    protected static ?string $pluralModelLabel = 'الأدوار';
+
     public static function form(Schema $schema): Schema
     {
         return RoleForm::configure($schema);

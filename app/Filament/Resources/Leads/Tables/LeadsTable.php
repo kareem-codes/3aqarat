@@ -16,34 +16,45 @@ class LeadsTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('الاسم'),
                 TextColumn::make('email')
-                    ->label('Email address')
+                    ->label('البريد الإلكتروني')
                     ->searchable(),
                 TextColumn::make('phone')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('رقم الهاتف'),
                 TextColumn::make('time_range_to_contact')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('وقت التواصل'),
                 TextColumn::make('property_id')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('رقم العقار'),
                 TextColumn::make('agent_id')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('رقم الوكيل'),
                 TextColumn::make('status')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('الحالة'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label('تاريخ الإنشاء'),
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label('تاريخ التحديث'),
             ])
             ->filters([
                 //
             ])
+            ->emptyStateHeading('لا يوجد عملاء محتملين')
+            ->emptyStateDescription('قم بإضافة عميل محتمل للبدء.')
+            ->emptyStateIcon('heroicon-o-envelope')
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),

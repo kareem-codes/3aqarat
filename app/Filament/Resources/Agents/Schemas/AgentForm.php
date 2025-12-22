@@ -14,22 +14,30 @@ class AgentForm
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->required(),
+                    ->required()
+                    ->label('الاسم'),
                 FileUpload::make('image')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('agents')
+                    ->label('الصورة'),
                 TextInput::make('email')
-                    ->label('Email address')
+                    ->label('البريد الإلكتروني')
                     ->email()
                     ->required(),
                 TextInput::make('phone')
                     ->required()
-                    ->tel(),
+                    ->tel()
+                    ->label('رقم الهاتف'),
                 Toggle::make('status')
-                    ->required(),
+                    ->required()
+                    ->label('الحالة'),
                 TextInput::make('rating')
                     ->numeric()
-                    ->default(0),
-                TextInput::make('bio'),
+                    ->default(0)
+                    ->label('التقييم'),
+                TextInput::make('bio')
+                    ->label('نبذة'),
             ]);
     }
 }

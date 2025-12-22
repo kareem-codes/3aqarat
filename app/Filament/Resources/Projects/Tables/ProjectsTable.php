@@ -18,38 +18,49 @@ class ProjectsTable
             ->columns([
                 TextColumn::make('name')
                 ->sortable()
-                ->searchable(),
+                ->searchable()
+                ->label('الاسم'),
                 TextColumn::make('slug')
                 ->sortable()
-                ->searchable(),
+                ->searchable()
+                ->label('الرابط'),
                 TextColumn::make('city')
                 ->sortable()
-                ->searchable(),
+                ->searchable()
+                ->label('المدينة'),
             TextColumn::make('properties_count')
                 ->searchable()
-                ->label('Total Properties')
+                ->label('إجمالي العقارات')
                 ->sortable(),
                 TextColumn::make('state')
                 ->sortable()
-                ->searchable(),
+                ->searchable()
+                ->label('المحافظة'),
                 IconColumn::make('status')
-                    ->boolean(),
+                    ->boolean()
+                    ->label('نشط'),
                 IconColumn::make('is_featured')
-                    ->boolean(),
+                    ->boolean()
+                    ->label('مميز'),
                 TextColumn::make('created_at')
                 ->sortable()
                 ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label('تاريخ الإنشاء'),
                 TextColumn::make('updated_at')
                 ->sortable()
                 ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label('تاريخ التحديث'),
             ])
             ->filters([
                 //
             ])
+            ->emptyStateHeading('لا توجد مشاريع')
+            ->emptyStateDescription('قم بإضافة مشروع للبدء.')
+            ->emptyStateIcon('heroicon-o-globe-europe-africa')
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),

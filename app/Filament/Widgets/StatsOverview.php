@@ -30,36 +30,36 @@ class StatsOverview extends BaseWidget
         $totalValue = Property::where('status', true)->sum('price');
 
         return [
-            Stat::make('Total Properties', $totalProperties)
-                ->description($activeProperties . ' active properties')
+            Stat::make('إجمالي العقارات', $totalProperties)
+                ->description($activeProperties . ' عقار نشط')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('success')
                 ->chart([7, 12, 15, 18, 22, 25, $totalProperties]),
             
-            Stat::make('Featured Properties', $featuredProperties)
-                ->description('Premium listings')
+            Stat::make('العقارات المميزة', $featuredProperties)
+                ->description('القوائم المميزة')
                 ->descriptionIcon('heroicon-m-star')
                 ->color('warning'),
             
-            Stat::make('Total Projects', $totalProjects)
-                ->description($activeProjects . ' active projects')
+            Stat::make('إجمالي المشاريع', $totalProjects)
+                ->description($activeProjects . ' مشروع نشط')
                 ->descriptionIcon('heroicon-m-building-office')
                 ->color('info')
                 ->chart([3, 5, 7, 9, 11, $totalProjects]),
             
-            Stat::make('Active Agents', $activeAgents)
-                ->description('Out of ' . $totalAgents . ' total agents')
+            Stat::make('الوكلاء النشطون', $activeAgents)
+                ->description('من أصل ' . $totalAgents . ' وكيل')
                 ->descriptionIcon('heroicon-m-user-group')
                 ->color('primary'),
             
-            Stat::make('Total Leads', $totalLeads)
-                ->description($newLeadsThisMonth . ' new this month')
+            Stat::make('إجمالي العملاء المحتملين', $totalLeads)
+                ->description($newLeadsThisMonth . ' عميل جديد هذا الشهر')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('success')
                 ->chart([10, 15, 22, 28, 35, 42, $totalLeads]),
             
-            Stat::make('Average Property Price', '$' . number_format($averagePrice, 2))
-                ->description('Total portfolio value: $' . number_format($totalValue, 0))
+            Stat::make('متوسط سعر العقار', '$' . number_format($averagePrice, 2))
+                ->description('إجمالي قيمة المحفظة: $' . number_format($totalValue, 0))
                 ->descriptionIcon('heroicon-m-currency-dollar')
                 ->color('success'),
         ];

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class PropertiesByCategory extends ChartWidget
 {
-    protected ?string $heading = 'Properties by Category';
+    protected ?string $heading = 'العقارات حسب الفئة';
     protected static ?int $sort = 2;
     protected ?string $maxHeight = '300px';
 
@@ -25,7 +25,7 @@ class PropertiesByCategory extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Properties',
+                    'label' => 'العقارات',
                     'data' => $propertiesByCategory->values()->toArray(),
                     'backgroundColor' => [
                         'rgb(59, 130, 246)',

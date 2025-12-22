@@ -13,33 +13,33 @@ class UsersTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Name')
+                    ->label('الاسم')
                     ->searchable()
                     ->sortable()
                     ->weight('bold'),
                 TextColumn::make('email')
-                    ->label('Email')
+                    ->label('البريد الإلكتروني')
                     ->searchable()
                     ->sortable()
                     ->icon('heroicon-o-envelope')
                     ->copyable(),
                 TextColumn::make('roles.name')
-                    ->label('Roles')
+                    ->label('الأدوار')
                     ->badge()
                     ->color('success')
                     ->searchable(),
                 TextColumn::make('permissions_count')
-                    ->label('Direct Permissions')
+                    ->label('الصلاحيات المباشرة')
                     ->counts('permissions')
                     ->badge()
                     ->color('info'),
                 TextColumn::make('created_at')
-                    ->label('Created At')
+                    ->label('تاريخ الإنشاء')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
-                    ->label('Updated At')
+                    ->label('تاريخ التحديث')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -48,7 +48,11 @@ class UsersTable
                 Tables\Filters\SelectFilter::make('roles')
                     ->relationship('roles', 'name')
                     ->multiple()
-                    ->preload(),
-            ]);
+                    ->preload()
+                    ->label('الأدوار'),
+            ])
+            ->emptyStateHeading('لا يوجد مستخدمين')
+            ->emptyStateDescription('قم بإضافة مستخدم للبدء.')
+            ->emptyStateIcon('heroicon-o-users');
     }
 }

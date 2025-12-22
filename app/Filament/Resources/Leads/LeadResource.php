@@ -24,6 +24,12 @@ class LeadResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    protected static ?string $navigationLabel = 'العملاء المحتملين';
+
+    protected static ?string $modelLabel = 'عميل محتمل';
+
+    protected static ?string $pluralModelLabel = 'العملاء المحتملين';
+
     public static function form(Schema $schema): Schema
     {
         return LeadForm::configure($schema);
