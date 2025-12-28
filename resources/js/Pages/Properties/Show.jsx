@@ -36,7 +36,7 @@ export default function PropertyShow({property, relatedProperties}) {
 
             <div className="min-h-screen bg-gray-50">
                 {/* Breadcrumb */}
-                <div className="bg-orange-100 bp-5 pt-30 ">
+                <div className="bg-blue-100 bp-5 pt-30 ">
                     <div className="max-w-7xl mx-auto px-4 py-4">
                         <div className="flex items-center gap-2 text-xl text-gray-600">
                             <Link href="/" className="hover:text-orange-500 transition">الرئيسية</Link>
@@ -61,7 +61,6 @@ export default function PropertyShow({property, relatedProperties}) {
                                             alt={`${property.name} - صورة ${currentImageIndex + 1}`}
                                             className="w-full h-full object-cover"
                                         />
-
                                         <div className="absolute top-4 right-4 flex gap-2">
                                             {property.is_for_sale && (
                                                 <span

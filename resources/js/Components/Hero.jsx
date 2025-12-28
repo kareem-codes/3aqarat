@@ -1,3 +1,4 @@
+import { Link } from "@inertiajs/react";
 import {FiPhone} from "react-icons/fi";
 
 export default function Hero() {
@@ -41,19 +42,20 @@ export default function Hero() {
                         بدقة وإبداع.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a
-                            href="#contact"
+
+                        <Link
+                            href='contact'
                             className="btn-primary flex items-center gap-3 hover:bg-gray-800 transition-all group text-lg font-medium"
                         >
                             <FiPhone className="text-xl"/>
                             احجز استشارتك
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             href="/projects"
                             className="btn-secondary text-lg font-medium"
                         >
                             تعرف على المزيد
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>

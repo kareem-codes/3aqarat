@@ -1,11 +1,11 @@
 import { FiArrowUpRight } from "react-icons/fi";
 import { Link } from "@inertiajs/react";
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, isList = false }) {
     return (
         <Link
             href={`/projects/${project.slug}`}
-            className="relative rounded-2xl overflow-hidden h-full w-full group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-slate-100 block"
+            className={`relative rounded-2xl overflow-hidden ${!isList ? 'h-full' : 'h-[400px]'} w-full group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-slate-100 block`}
         >
             {/* Image with overlay */}
             <div className="absolute inset-0">
