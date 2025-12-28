@@ -9,17 +9,39 @@
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white)
 
-> ⚠️ **UNDER ACTIVE DEVELOPMENT** - This project is currently in early development phase. Features are being implemented and the codebase is subject to significant changes.
-
 ## 📋 Project Overview
 
 3aqarat is a comprehensive real estate management platform designed to streamline property listings, lead management, and agent operations. Built with modern technologies to provide a robust and scalable solution for real estate businesses.
 
-## 🚧 Current Status
+## 🎨 Design Inspiration
 
-**Development Phase: Early Stage**
+Partially inspired by: [Real Estate Website Design on Dribbble](https://dribbble.com/shots/25373479-Real-Estate-Website)
 
-This project is actively being developed. Core features are being implemented and the architecture is being established. Not yet ready for production use.
+## 📸 Screenshots
+
+<div align="center">
+  <img src="screenshots/1.png" alt="Homepage" width="45%" />
+  <img src="screenshots/2.png" alt="Property Listings" width="45%" />
+</div>
+
+<div align="center">
+  <img src="screenshots/3.png" alt="Property Details" width="45%" />
+  <img src="screenshots/4.png" alt="Agent Management" width="45%" />
+</div>
+
+<div align="center">
+  <img src="screenshots/5.png" alt="Projects" width="45%" />
+  <img src="screenshots/6.png" alt="Lead Management" width="45%" />
+</div>
+
+<div align="center">
+  <img src="screenshots/7.png" alt="Dashboard View" width="45%" />
+  <img src="screenshots/8.png" alt="Mobile Responsive" width="45%" />
+</div>
+
+<div align="center">
+  <img src="screenshots/dashboard.png" alt="Admin Dashboard" width="90%" />
+</div>
 
 ## 🛠️ Tech Stack
 
@@ -100,22 +122,13 @@ npm run dev
 php artisan serve
 ```
 
-## 📝 Features (In Progress)
+## 📝 Features
 
-- [✅] User authentication and authorization
-- [✅] Agent management system
-- [✅] Property listings and management
-- [✅] Project tracking and oversight
-- [✅] Role-based access control
-- [✅] Admin dashboard with Filament
-- [ ] Lead capture and management
-- [ ] Responsive UI with React components
-
-## 📄 License
-
-This project is proprietary and under development.
-
----
-
-**Last Updated:** December 2025  
-**Status:** 🔴 In Development
+- ✅ User authentication and authorization
+- ✅ Agent management system
+- ✅ Property listings and management
+- ✅ Project tracking and oversight
+- ✅ Role-based access control
+- ✅ Admin dashboard with Filament
+- ✅ Lead capture and management
+- ✅ Responsive UI with React components

@@ -1,4 +1,4 @@
-import { usePage } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import { FiPhone, FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
 
@@ -16,7 +16,7 @@ export default function Header() {
     const linkClass = (path) => {
         return isActive(path)
             ? "text-slate-800 px-2 md:px-4 mx-1 py-2 rounded-full bg-white/90 transition hover:bg-white font-medium"
-            : "text-slate-700 px-2 md:px-4 mx-1 py-2 rounded-full hover:bg-white/80 hover:text-slate-900 transition font-medium";
+            : "text-white px-2 md:px-4 mx-1 py-2 rounded-full hover:bg-white/80 hover:text-slate-900 transition font-medium";
     };
 
     const mobileLinkClass = (path) => {
@@ -31,25 +31,25 @@ export default function Header() {
                 className="bg-transparent mt-4 p-3 rounded-3xl mx-auto max-w-[calc(100%-2rem)] flex items-center justify-between"
                 id="header-nav"
             >
-                <div className="text-3xl font-bold text-slate-800">عـقارات</div>
+                <div className="text-3xl font-bold text-white">عـقارات</div>
 
                 <nav className="hidden md:flex items-center">
                     <div>
-                        <a href="/" className={linkClass('/')}> الرئيسية</a>
+                        <Link href="/" className={linkClass('/')}> الرئيسية</Link>
                     </div>
                     <div>
-                        <a href="/properties" className={linkClass('/properties')}> العقارات</a>
+                        <Link href="/properties" className={linkClass('/properties')}> العقارات</Link>
                     </div>
                     <div>
-                        <a href="/projects" className={linkClass('/projects')}> المشاريع</a>
+                        <Link href="/projects" className={linkClass('/projects')}> المشاريع</Link>
                     </div>
                     <div>
-                        <a href="/agents" className={linkClass('/agents')}> الوكلاء</a>
+                        <Link href="/agents" className={linkClass('/agents')}> الوكلاء</Link>
                     </div>
                 </nav>
                 <div className="flex items-center gap-2">
                     <div>
-                        <a href="/contact" className="text-white px-3 md:px-5 py-2 md:py-2.5 rounded-full bg-slate-800 hover:bg-slate-700 transition flex items-center gap-2 font-medium shadow-md"><FiPhone /><span className="hidden md:flex">احجز استشارتك</span></a>
+                        <Link href="/contact" className="text-white px-3 md:px-5 py-2 md:py-2.5 rounded-full bg-slate-800 hover:bg-slate-700 transition flex items-center gap-2 font-medium shadow-md"><FiPhone /><span className="hidden md:flex">احجز استشارتك</span></Link>
                     </div>
                     <button
                         className="md:hidden text-slate-800 text-2xl p-2"
@@ -64,21 +64,21 @@ export default function Header() {
             {/* Mobile Menu */}
             {isMenuOpen && (
                 <div className="md:hidden backdrop-blur-md bg-white/80 mt-2 p-4 rounded-3xl mx-auto max-w-[calc(100%-2rem)] space-y-2 shadow-lg">
-                    <a href="/" className={mobileLinkClass('/')} onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/" className={mobileLinkClass('/')} onClick={() => setIsMenuOpen(false)}>
                         الرئيسية
-                    </a>
-                    <a href="/properties" className={mobileLinkClass('/properties')} onClick={() => setIsMenuOpen(false)}>
+                    </Link>
+                    <Link href="/properties" className={mobileLinkClass('/properties')} onClick={() => setIsMenuOpen(false)}>
                         العقارات
-                    </a>
-                    <a href="/projects" className={mobileLinkClass('/projects')} onClick={() => setIsMenuOpen(false)}>
+                    </Link>
+                    <Link href="/projects" className={mobileLinkClass('/projects')} onClick={() => setIsMenuOpen(false)}>
                         المشاريع
-                    </a>
-                    <a href="/agents" className={mobileLinkClass('/agents')} onClick={() => setIsMenuOpen(false)}>
+                    </Link>
+                    <Link href="/agents" className={mobileLinkClass('/agents')} onClick={() => setIsMenuOpen(false)}>
                         الوكلاء
-                    </a>
-                    <a href="#contact" className="block px-4 py-3 rounded-full transition hover:bg-slate-100 text-slate-800 font-medium" onClick={() => setIsMenuOpen(false)}>
+                    </Link>
+                    <Link href="#contact" className="block px-4 py-3 rounded-full transition hover:bg-slate-100 text-slate-800 font-medium" onClick={() => setIsMenuOpen(false)}>
                         احجز استشارتك
-                    </a>
+                    </Link>
                 </div>
             )}
         </div>
